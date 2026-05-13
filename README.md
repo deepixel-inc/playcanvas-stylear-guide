@@ -20,16 +20,15 @@
 | Android | 24         |
 | iOS     | 15         |
 
-* Mobile
 
-| Browser             | Version   | Release date |
+| Mobile Browser             | Version   | Release date |
 | ------------------- | --------- | ------------ |
-| chrome              | 115       | 2023‑07‑12   |
-| safari              | 16.6      | 2023‑07‑24   |
-| edge                | 115       | 2023‑06‑13   |
-| whale               | 3.0.1.2   | 2023‑09‑15   |
-| samsung browser     | 22.0.0.54 | 2023‑07‑13   |
-| firefox             | 116.0     | 2023‑08‑01   |
+| chrome              | 148       | 2026-05-12   |
+| safari              | 26.4      | 2026-02-16   |
+| edge                | 147.0.3912.60 | 2026-04-10 |
+| whale               | 4.35.351.16 | 2026-01-12 |
+| samsung browser     | 29.0      | 2026-03-26   |
+| firefox             | 150.0.3   | 2026-05-12   |
 
 > Encouraging users to use Chrome, which offers better performance compared to Edge, Whale, and Samsung Browser, is recommended.
 
@@ -59,7 +58,7 @@
        Deinitialization
 ```
 
-## Library 구성
+## Library Structure
 
 > All components should be accessible using the same URL.
 
@@ -93,7 +92,7 @@
 
 > Settings for the camera entity required to render items (watch, ring, etc.)
 
-* Hierachy / Camera / `Clear Color = #00000000`
+* Hierarchy / Camera / `Clear Color = #00000000`
   * The background must be rendered transparently to perform AR rendering by compositing with the camera video.
   
 #### Item
@@ -102,7 +101,7 @@
 
 ##### Watch
 
-* Set the inner diameter of the watch to 2.
+* Set the inner diameter of the ring to 2.
 * Set the crown of the watch to face up (y-axis positive direction).
 * Add an occlusion entity to avoid rendering parts hidden by the wrist.
   * Refer to the Occlusion entity in the sample project.
