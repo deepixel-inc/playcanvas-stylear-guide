@@ -21,6 +21,7 @@
 | iOS     | 15         |
 
 * Mobile
+
 | Browser             | Version   | Release date |
 | ------------------- | --------- | ------------ |
 | chrome              | 115       | 2023‑07‑12   |
