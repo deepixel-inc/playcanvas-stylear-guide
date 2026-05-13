@@ -6,12 +6,12 @@
 
 ## Description
 
-* This is a library that implements real-time virtual fitting.
+* This library provides real-time virtual fitting.
 
 ## Requirement
 
-> Android in-app browsers are not supported. (Implementation needed to run on Chrome using intent)  
-> iOS in-app browsers are supported
+> Do not use Android in-app browsers. To run on Chrome, implement intent-based launching.  
+> iOS in-app browsers are supported.
 
 | OS      |            |
 | ------- | ---------- |
@@ -30,7 +30,7 @@
 | samsung browser     | 29.0      | 2026-03-26   |
 | firefox             | 150.0.3   | 2026-05-12   |
 
-> Encouraging users to use Chrome, which offers better performance compared to Edge, Whale, and Samsung Browser, is recommended.
+> We recommend Chrome because it offers better performance than Edge, Whale, and Samsung Browser.
 
 ## Workflow
 
@@ -41,7 +41,7 @@
          ∨
        Initialization
          ∨
-       Select Product(Earring, Ring, etc.)
+      Select Product (Earring, Ring, etc.)
          ∨
   ┌─＞ Start
   │      ∨
@@ -60,7 +60,7 @@
 
 ## Library Structure
 
-> All components should be accessible using the same URL.
+> Serve all components from the same URL.
 
 * stylear_wasm_#.#.#.min.js
 * stylear_wasm_#.#.#.wasm
@@ -79,7 +79,7 @@
 
 #### Settings
 
-> Required settings for AR rendering
+> Configure the following settings for AR rendering.
 
 * Settings / External Scripts / `your url/stylearweblivesdk.#.#.#.min.js`
   * `stylear_wasm_#.#.#.min.js` and `stylear_wasm_#.#.#.wasm` files are downloaded and executed using the same URL during the SDK initialization process, so they do not need to be set in External Scripts.
@@ -90,35 +90,35 @@
 
 #### Camera
 
-> Settings for the camera entity required to render items (watch, ring, etc.)
+> Configure the camera entity for item rendering (watch, ring, etc.).
 
 * Hierarchy / Camera / `Clear Color = #00000000`
   * The background must be rendered transparently to perform AR rendering by compositing with the camera video.
   
 #### Item
 
-> Settings for items (watch, ring, etc.) to be used in AR rendering
+> Configure items (watch, ring, etc.) for AR rendering.
 
 ##### Watch
 
-* Set the inner diameter of the ring to 2.
+* Set the watch inner diameter to 2.
 * Set the crown of the watch to face up (y-axis positive direction).
 * Add an occlusion entity to avoid rendering parts hidden by the wrist.
   * Refer to the Occlusion entity in the sample project.
 
 ##### Ring
 
-* Set the inner diameter of the watch to 2.
+* Set the ring inner diameter to 2.
 * Add an occlusion entity to avoid rendering parts hidden by the finger.
   * Refer to the Occlusion entity in the sample project.
 
 ### PlayCanvas Editor Code
 
-> Code needed to update the settings for the items and camera used for AR rendering.  
-> Code according to the [Workflow](#workflow)
+> Use the following code to update item and camera settings for AR rendering.  
+> Follow the [Workflow](#workflow).
 
 * Instantiation
-  * Pass the HTMLCanvasElement from PlayCanvas and the HTMLElement used as the parent for StyleAR as parameters.
+  * Pass the PlayCanvas HTMLCanvasElement and the parent HTMLElement for StyleAR as parameters.
   * StyleAR creates a canvas of the same size as the parent element and performs AR rendering on it.
   
   ```javascript
@@ -182,8 +182,8 @@
   ```
 
 * Initialization
-  * Pass the parameter that specifies how much to rotate the camera.
-  * Since the process of downloading and executing resources needed for initialization takes a long time, a callback function to show the progress can be passed as a parameter.
+  * Pass a parameter to specify camera rotation.
+  * Because downloading and executing resources for initialization can take time, you can pass a callback to report progress.
 
   ```javascript
   const setting = {
@@ -196,11 +196,11 @@
   ```
 
 * Change Product and Start
-  * Immediately after initialization, the product is set to DPStyleARProduct.UNKNOWN.
-  * Pass the parameter from [DPStyleARProduct](#dpstylearproduct).
-  * When start() is called, the camera is activated.
-    * If the browser tab becomes inactive after virtual fitting has started, the camera device is deactivated internally, so there's no need to call stop().
-    * If the browser tab is reactivated, the camera device is reactivated internally, so there's no need to call start() again.
+  * Immediately after initialization, the product is DPStyleARProduct.UNKNOWN.
+  * Pass a value from [DPStyleARProduct](#dpstylearproduct).
+  * Call start() to activate the camera.
+    * If the browser tab becomes inactive after virtual fitting starts, the camera is deactivated internally, so there is no need to call stop().
+    * If the browser tab becomes active again, the camera is reactivated internally, so there is no need to call start() again.
   
   ```javascript
   await styleARWebLive.changeTo(window.DPStyleARProduct.WATCH);
@@ -255,7 +255,7 @@
   // Item rendering
   this.app.render();
 
-  // Execute AR rendering reflecting the results rendered by PlayCanvas
+  // Execute AR rendering using the results rendered by PlayCanvas
   await styleARWebLive.updateItem();
   await styleARWebLive.render();
   ```
