@@ -41,7 +41,7 @@
          ∨
        Initialization
          ∨
-      Select Product (Earring, Ring, etc.)
+       Select Product (Earring, Ring, etc.)
          ∨
   ┌─＞ Start
   │      ∨
@@ -74,6 +74,7 @@
 
 * Sample code
   * [StyleAR-Watch PlayCanvas Sample](https://playcanvas.com/editor/scene/2032818)
+  * [StyleAR-Ring PlayCanvas Sample](https://playcanvas.com/editor/scene/2154542)
 
 ### PlayCanvas Editor
 
@@ -111,6 +112,12 @@
 * Set the ring inner diameter to 2.
 * Add an occlusion entity to avoid rendering parts hidden by the finger.
   * Refer to the Occlusion entity in the sample project.
+* A mask ROI must be rendered after the ring is rendered.
+  * In ring virtual try-on, a mask is applied to parts hidden by adjacent fingers, and the mask is only applied to the area drawn by the mask ROI.
+  * The mask ROI must be pure red: `(255, 0, 0)`.
+  * After rendering the ring, call `updateItem()`.
+  * After rendering the mask ROI, call `updateMaskRoi()`.
+  * Refer to the MaskRoi entity in the sample project.
 
 ### PlayCanvas Editor Code
 
