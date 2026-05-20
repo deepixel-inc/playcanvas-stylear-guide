@@ -68,7 +68,7 @@
 
 ## API
 
-> Refer to the separate API reference document.
+> Refer to the separate [API reference](./api-reference/index.md) document.
 
 ## Use StyleAR in PlayCanvas
 
