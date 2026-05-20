@@ -2,7 +2,7 @@
 
 > Creator: <honami82@deepixel.xyz>  
 > Date: 2024/07/10
-> Update: 2026/05/13
+> Update: 2026/05/20
 
 ## Description
 
